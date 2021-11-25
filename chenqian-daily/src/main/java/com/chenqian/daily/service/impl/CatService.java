@@ -1,5 +1,6 @@
 package com.chenqian.daily.service.impl;
 
+import com.alibaba.dubbo.common.URL;
 import com.chenqian.daily.service.AnimalService;
 
 
@@ -10,8 +11,18 @@ import com.chenqian.daily.service.AnimalService;
 public class CatService implements AnimalService {
 
 
-    public void miao() {
-        System.out.println("miao miao");
+    public void say() {
+        System.out.println("cat miao miao");
+    }
+
+    @Override
+    public void run(URL url) {
+        System.out.println("cat -- "+url.toString());
+    }
+
+    @Override
+    public void fly() {
+        System.out.println("cat cannot fly");
     }
 
 }

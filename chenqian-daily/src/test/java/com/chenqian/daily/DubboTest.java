@@ -25,7 +25,14 @@ public class DubboTest {
     public void testSPI() {
         ExtensionLoader<AnimalService> loader = ExtensionLoader.getExtensionLoader(AnimalService.class);
         AnimalService catService = loader.getExtension("cat");
-        catService.miao();
+        catService.say();
+    }
+
+    @Test
+    public void testAdaptive() {
+        ExtensionLoader<AnimalService> loader = ExtensionLoader.getExtensionLoader(AnimalService.class);
+        AnimalService catService = loader.getExtension("cat");
+        catService.say();
     }
 
 }

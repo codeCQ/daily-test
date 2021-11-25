@@ -1,1 +1,2 @@
 cat=com.chenqian.daily.service.impl.CatService
+dog=com.chenqian.daily.service.impl.DogService
