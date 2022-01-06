@@ -5,6 +5,7 @@ import com.alibaba.dubbo.common.extension.ExtensionLoader;
 import com.chenqian.daily.service.AnimalService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
 
 /**
  * @author chenQian
@@ -15,14 +16,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class DailyApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(DailyApplication.class, args);
-        ExtensionLoader<AnimalService> loader = ExtensionLoader.getExtensionLoader(AnimalService.class);
-        //测试SPi注解
-        AnimalService catService = loader.getExtension("cat");
-        catService.say();
-        //测试
-        AnimalService animalService = loader.getAdaptiveExtension();
-        //animalService.say();
-        animalService.run(new URL("dubbo", "127.0.0.1", 21880));
+        ConfigurableApplicationContext run = SpringApplication.run(DailyApplication.class, args);
+        Object mySon = run.getBean("son");
+        System.out.println(mySon);
     }
 }

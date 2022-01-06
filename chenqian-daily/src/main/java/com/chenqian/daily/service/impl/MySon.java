@@ -1,10 +1,13 @@
 package com.chenqian.daily.service.impl;
 
 import com.chenqian.daily.service.MyAbstractFather;
+import org.springframework.beans.factory.InitializingBean;
+import org.springframework.stereotype.Component;
 
-public class MySon extends MyAbstractFather {
+@Component("son")
+public class MySon extends MyAbstractFather implements InitializingBean {
     public MySon() {
-
+        System.out.println("MySon");
     }
 
     @Override
@@ -12,9 +15,10 @@ public class MySon extends MyAbstractFather {
         System.out.println("MySon doSome 执行了");
     }
 
-    //private方法 子类无法继承无法重写
-    private void doSome3(){
-        System.out.println("MyAbstractFather doSome3 执行了");;
-    }
 
+
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        //System.out.println("afterPropertiesSet");
+    }
 }
